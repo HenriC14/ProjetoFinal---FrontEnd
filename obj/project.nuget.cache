@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "puKsfDgxgFM=",
+  "success": true,
+  "projectFilePath": "D:\\henrique\\DS\\RecicladorBlazor\\RecicladorBlazor.csproj",
+  "expectedPackageFiles": [
+    "D:\\NugetPackages\\microsoft.aspnetcore.app.internal.assets\\10.0.9\\microsoft.aspnetcore.app.internal.assets.10.0.9.nupkg.sha512"
+  ],
+  "logs": []
+}
