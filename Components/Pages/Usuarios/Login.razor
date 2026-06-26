@@ -1,7 +1,9 @@
 @page "/usuarios/login"
 @rendermode InteractiveServer
+@inject ILocalStorageService LocalStorage
 @inject RecicladorBlazor.Services.UsuarioService UsuarioService
 @using RecicladorBlazor.Models
+@using Blazored.LocalStorage
 <h3>Login de Usuário</h3>
 <hr />
 @if (!string.IsNullOrEmpty(mensagem))
@@ -43,7 +45,9 @@ Não tem conta? Registrar
         {
             var usuarioRetorno = await UsuarioService.RegistrarAsync(usuario);
 
-            if (!string.IsNullOrEmpty(usuarioRetorno.Token)) mensagem = "Login realizado com sucesso";
+            if (!string.IsNullOrEmpty(usuarioRetorno.Token)) 
+            mensagem = "Login realizado com sucesso";
+            await LocalStorage.SetItemAsync("UsuarioToken", usuarioRetorno.Token);
             
         }
         catch (Exception ex)

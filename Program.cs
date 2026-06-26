@@ -1,4 +1,4 @@
-//using Blazored.LocalStorage;
+using Blazored.LocalStorage;
 using RecicladorBlazor.Components;
 using RecicladorBlazor.Services;
 
@@ -12,8 +12,8 @@ builder.Services.AddScoped(sp => new HttpClient
     BaseAddress = new Uri("http://luizfernando.somee.com/RpgApi/")
 });
 builder.Services.AddScoped<UsuarioService>();
-//builder.Services.AddScoped<PersonagemService>();
-//builder.Services.AddBlazoredLocalStorage();
+builder.Services.AddScoped<MaterialServices>();
+builder.Services.AddBlazoredLocalStorage();
 //Inicialização da class para uso em outras classes
 builder.Services.AddScoped<UsuarioService>();
 // Add services to the container.

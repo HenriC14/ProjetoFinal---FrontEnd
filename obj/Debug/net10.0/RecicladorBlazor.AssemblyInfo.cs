@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RecicladorBlazor")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8ad07932ea4c57d4155abca356742eb26a7eb4e7")]
 [assembly: System.Reflection.AssemblyProductAttribute("RecicladorBlazor")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RecicladorBlazor")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
