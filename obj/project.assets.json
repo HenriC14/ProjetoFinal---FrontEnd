@@ -71,32 +71,24 @@
     ]
   },
   "packageFolders": {
-    "D:\\NugetPackages": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\henri\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\henrique\\DS\\RecicladorBlazor\\RecicladorBlazor.csproj",
+      "projectUniqueName": "C:\\ETEC\\DS\\ProjetoFinal Frontend\\ProjetoFinal---FrontEnd\\RecicladorBlazor.csproj",
       "projectName": "RecicladorBlazor",
-      "projectPath": "D:\\henrique\\DS\\RecicladorBlazor\\RecicladorBlazor.csproj",
-      "packagesPath": "D:\\NugetPackages",
-      "outputPath": "D:\\henrique\\DS\\RecicladorBlazor\\obj\\",
+      "projectPath": "C:\\ETEC\\DS\\ProjetoFinal Frontend\\ProjetoFinal---FrontEnd\\RecicladorBlazor.csproj",
+      "packagesPath": "C:\\Users\\henri\\.nuget\\packages\\",
+      "outputPath": "C:\\ETEC\\DS\\ProjetoFinal Frontend\\ProjetoFinal---FrontEnd\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\etechas\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\henri\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

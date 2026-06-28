@@ -12,3 +12,16 @@ else if (!string.IsNullOrEmpty(mensagemErro))
 {
 <div class="alert alert-danger">@mensagemErro</div>
 }
+
+@code {
+
+    private List<MaterialViewModel> lista = null;
+    private string mensagem = string.Empty;
+    private string mensagemErro = string.Empty;
+
+    private async Task CarregarPersonagens()
+    {
+        var token = await LocalStorage.GetItemAsync<string>("UsuarioToken");
+        lista = await materialServices.GetAllAsync(token); //pdf 17/7
+    }
+}
