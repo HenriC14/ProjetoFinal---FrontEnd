@@ -1,0 +1,97 @@
+@page "/materiais/cadastro/{Id:int?}" 
+@rendermode InteractiveServer 
+@inject RecicladorBlazor.Services.MaterialServices MaterialServices 
+@inject ILocalStorageService LocalStorage 
+@inject NavigationManager Navigation 
+@using RecicladorBlazor.Models 
+@using Blazored.LocalStorage; 
+
+<EditForm Model="@material" OnValidSubmit="CadastrarMaterial"> 
+    <DataAnnotationsValidator /> 
+    <ValidationSummary /> 
+    <div class="mb-3"> 
+        <label>Nome:</label> 
+        <InputText @bind-Value="material.Nome" class="form-control" /> 
+    </div> 
+    <div class="mb-3"> 
+        <label>Peso:</label> 
+        <InputNumber @bind-Value="material.Peso" class="form-control" /> 
+    </div> 
+    <div class="mb-3"> 
+        <label>Valor por peso:</label> 
+        <InputNumber @bind-Value="material.ValorPorPeso" class="form-control" /> 
+    </div> 
+     <div class="mb-3"> 
+        <label>Tipo de material:</label> 
+        <InputSelect @bind-Value="material.TipoMaterial" class="form-control">
+            <option value="0">---Selecione---</option> 
+            @foreach (var item in Enum.GetValues(typeof(RecicladorBlazor.Models.Enuns.ClasseEnum))) 
+            { 
+                <option value="@item">@item</option> 
+            } 
+        </InputSelect> 
+    </div>     
+    <button type="submit" class="btn btn-primary">Cadastrar</button>     
+    <a href="personagens/index" class="btn btn-warning">Retornar</a> 
+</EditForm> 
+
+    @code {
+    private MaterialViewModel material = new MaterialViewModel();
+
+    private List<MaterialViewModel> lista = new List<MaterialViewModel>();
+    private string mensagem = string.Empty;
+    private string mensagemErro = string.Empty;
+
+    [Parameter]
+    public int? Id { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+    try
+    {
+        if (firstRender)
+        {
+            if (Id.HasValue && Id > 0)
+            {
+                var token = await LocalStorage.GetItemAsync<string>("UsuarioToken");
+                material = await MaterialServices.GetByIdAsync(token, Id.Value);
+
+                if (material == null)
+                {
+                    mensagemErro = "Material não encontrado!";
+                    material = new();
+                }
+            }
+
+            StateHasChanged();
+        }
+    }
+    catch (Exception ex)
+    {
+        mensagemErro = ex.Message;
+    }
+}
+
+    private async Task CadastrarMaterial()
+    {
+        try
+        {
+            var token = await LocalStorage.GetItemAsync<string>("UsuarioToken");
+            
+            // CORREÇÃO DA CHAMADA DO SERVIÇO:
+            // 1. Usamos a instância "PersonagemService" (que injetou na linha 3)
+            // 2. Passamos o objeto "material" que foi preenchido pelo formulário HTML
+            var materialRetorno = await MaterialServices.InsertAsync(token ?? string.Empty, material);
+
+            if (materialRetorno != null && materialRetorno.Id != 0)
+            {
+                mensagem = "Material registrado com sucesso!!";
+                Navigation.NavigateTo("/materiais/index");
+            }
+        }
+        catch (Exception ex)
+        {
+            mensagemErro = ex.Message;
+        }
+    }
+}

@@ -1,5 +1,6 @@
-@page "/personagens/index"
+@page "/materiais/index"
 @rendermode InteractiveServer
+@inject NavigationManager Navigation
 @inject RecicladorBlazor.Services.MaterialServices materialServices;
 @inject ILocalStorageService LocalStorage
 @using RecicladorBlazor.Models
@@ -13,15 +14,99 @@ else if (!string.IsNullOrEmpty(mensagemErro))
 <div class="alert alert-danger">@mensagemErro</div>
 }
 
+<PageTitle>Materiais</PageTitle> 
+<h1>Materiais</h1> 
+<p>Listagem de Materiais</p> 
+<NavLink class="btn btn-info" href="/materiais/cadastro"> 
+    <i class="bi bi-plus-lg"></i> Novo 
+</NavLink> 
+@if (lista == null) 
+{ 
+    <p><em>Carregando...</em></p> 
+} 
+else 
+{ 
+    <table class="table"> 
+        <thead> 
+            <tr> 
+                <th>Id</th> 
+                <th>Nome</th> 
+                <th>Peso</th>
+                <th>ValorPorPeso</th>
+                <th>TipoMaterial</th>
+               
+            </tr> 
+        </thead> 
+            <tbody>
+        @if (lista == null)
+        {
+            <tr>
+                <td colspan="4">Carregando materiais...</td>
+            </tr>
+        }
+        else if (!lista.Any())
+        {
+            <tr>
+                <td colspan="4">Nenhum material encontrado.</td>
+            </tr>
+        }
+        else
+        {
+            @foreach (var personagem in lista)
+            {
+                <tr>
+                    <td>@personagem.Id</td>
+                    <td>@personagem.Nome</td>
+                    <td>@personagem.Peso</td>
+                    <td>@personagem.ValorPorPeso</td>
+                    <td>@personagem.TipoMaterial</td>
+                    
+                    @* O BOTÃO DEVE FICAR AQUI, DENTRO DA LINHA DO FOREACH *@
+                    <td>
+                        <button class="btn btn-warning btn-sm" @onclick="() => EditarMaterial(personagem.Id)">
+                            <i class="bi bi-pencil"></i> Editar
+                        </button>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+} 
+
+
 @code {
 
-    private List<MaterialViewModel> lista = null;
+    private List<MaterialViewModel> lista = new List<MaterialViewModel>();
     private string mensagem = string.Empty;
     private string mensagemErro = string.Empty;
 
-    private async Task CarregarPersonagens()
+    private async Task CarregarMateriais()
     {
         var token = await LocalStorage.GetItemAsync<string>("UsuarioToken");
         lista = await materialServices.GetAllAsync(token); //pdf 17/7
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        try
+        {
+            if (firstRender)
+            await CarregarMateriais();
+        }
+        catch (Exception ex)
+        {
+            mensagemErro = ex.Message;
+        }
+        finally
+        {
+            StateHasChanged();
+        }
+    }
+
+    private void EditarMaterial(int id)
+    {
+        Navigation.NavigateTo($"/personagens/cadastro/{id}");
     }
 }
