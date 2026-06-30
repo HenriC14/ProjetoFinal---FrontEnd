@@ -1,11 +1,22 @@
 @page "/materiais/cadastro/{Id:int?}" 
 @rendermode InteractiveServer 
+@inject IJSRuntime JS
 @inject RecicladorBlazor.Services.MaterialServices MaterialServices 
 @inject ILocalStorageService LocalStorage 
 @inject NavigationManager Navigation 
 @using RecicladorBlazor.Models 
 @using Blazored.LocalStorage; 
 
+<h3 style="color: #3ca130; font-size: 40px; font-weight: bold;">
+    @(material.Id == 0 ? "Cadastrar Material" :"Editar Material")</h3>
+
+@if(material.Id != 0)
+{
+    <div class="mb-3">
+        <label>Id:</label>
+    <InputNumber TValue="int" @bind-Value="material.Id" readonly="readonly" class="form-control input-readonly" />
+    </div>
+}
 <EditForm Model="@material" OnValidSubmit="CadastrarMaterial"> 
     <DataAnnotationsValidator /> 
     <ValidationSummary /> 
@@ -31,8 +42,10 @@
             } 
         </InputSelect> 
     </div>     
-    <button type="submit" class="btn btn-primary">Cadastrar</button>     
-    <a href="personagens/index" class="btn btn-warning">Retornar</a> 
+    <button type="submit" class="btn btn-primary">
+        @(material.Id == 0? "Cadastrar" : "Salvar alterações")
+    </button>     
+    <a href="materiais/index" class="btn btn-warning">Retornar</a> 
 </EditForm> 
 
     @code {
@@ -77,17 +90,21 @@
         try
         {
             var token = await LocalStorage.GetItemAsync<string>("UsuarioToken");
-            
-            // CORREÇÃO DA CHAMADA DO SERVIÇO:
-            // 1. Usamos a instância "PersonagemService" (que injetou na linha 3)
-            // 2. Passamos o objeto "material" que foi preenchido pelo formulário HTML
-            var materialRetorno = await MaterialServices.InsertAsync(token ?? string.Empty, material);
-
-            if (materialRetorno != null && materialRetorno.Id != 0)
+                
+            if(material.Id == 0)
             {
-                mensagem = "Material registrado com sucesso!!";
-                Navigation.NavigateTo("/materiais/index");
+                var retorno = await MaterialServices.InsertAsync(token, material);
+                mensagem = (material.Id != 0) ? "Material registrado com sucesso!" : "Falha na operação";
+                await JS.InvokeVoidAsync("alert", new[] { mensagem });
             }
+            else
+            {
+                var retorno = await MaterialServices.EditAsync(token, material);
+                mensagem = (retorno != 0) ? "Material atualizado com sucesso!" : "Nenhuma atualização";
+                await JS.InvokeVoidAsync("alert", new[] { mensagem });
+            }
+
+            Navigation.NavigateTo("/material/index");
         }
         catch (Exception ex)
         {

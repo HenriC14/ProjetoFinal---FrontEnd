@@ -10,12 +10,12 @@ main[b-ubta6uf47q] {
 }
 
 .sidebar[b-ubta6uf47q] {
-    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+    background-image: linear-gradient(180deg, rgb(27, 133, 41) 0%, #a9d86b 70%);
 }
 
 .top-row[b-ubta6uf47q] {
-    background-color: #f7f7f7;
-    border-bottom: 1px solid #d6d5d5;
+    background-color: #c8ffd4;
+    border-bottom: 1px solid #5b8167;
     justify-content: flex-end;
     height: 3.5rem;
     display: flex;
@@ -117,7 +117,7 @@ main[b-ubta6uf47q] {
 
 .top-row[b-tpirhdbo0f] {
     min-height: 3.5rem;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0, 255, 21, 0.575);
 }
 
 .navbar-brand[b-tpirhdbo0f] {
@@ -172,12 +172,12 @@ main[b-ubta6uf47q] {
     }
 
 .nav-item[b-tpirhdbo0f]  a.active {
-    background-color: rgba(255,255,255,0.37);
+    background-color: rgba(81, 255, 0, 0.37);
     color: white;
 }
 
 .nav-item[b-tpirhdbo0f]  .nav-link:hover {
-    background-color: rgba(255,255,255,0.1);
+    background-color: rgba(72, 255, 0, 0.1);
     color: white;
 }
 
@@ -188,6 +188,8 @@ main[b-ubta6uf47q] {
 .navbar-toggler:checked ~ .nav-scrollable[b-tpirhdbo0f] {
     display: block;
 }
+
+
 
 @media (min-width: 641px) {
     .navbar-toggler[b-tpirhdbo0f] {

@@ -78,5 +78,44 @@ namespace RecicladorBlazor.Services
                 throw new Exception(responseContent);
             }
         }
+
+        public async Task<int> EditAsync(string token, MaterialViewModel material)
+        {
+            _http.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+            var content = new StringContent(JsonSerializer.Serialize(material));
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            var response = await _http.PutAsync("materiais", content);
+            var responseContent = await response.Content.ReadAsStringAsync();
+
+            if (response.IsSuccessStatusCode)
+            {
+                int linhasAfetadas = Convert.ToInt32(responseContent);
+                return linhasAfetadas;
+            }
+            else
+            {
+                throw new Exception(responseContent);
+            }
+        }
+
+        public async Task<int> DeleteAsync(string token, int id)
+        {
+            _http.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+            var response = await _http.DeleteAsync($"materiais/{id}");
+            var responseContent = await response.Content.ReadAsStringAsync();
+
+            if (response.IsSuccessStatusCode)
+            {
+                int linhasAfetadas = Convert.ToInt32(responseContent);
+                return linhasAfetadas;
+            }
+            else
+            {
+                throw new Exception(responseContent);
+            }
+        }
     }
 }

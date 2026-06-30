@@ -17,7 +17,7 @@
 
 .top-row[b-tpirhdbo0f] {
     min-height: 3.5rem;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0, 255, 21, 0.575);
 }
 
 .navbar-brand[b-tpirhdbo0f] {
@@ -72,12 +72,12 @@
     }
 
 .nav-item[b-tpirhdbo0f]  a.active {
-    background-color: rgba(255,255,255,0.37);
+    background-color: rgba(81, 255, 0, 0.37);
     color: white;
 }
 
 .nav-item[b-tpirhdbo0f]  .nav-link:hover {
-    background-color: rgba(255,255,255,0.1);
+    background-color: rgba(72, 255, 0, 0.1);
     color: white;
 }
 
@@ -88,6 +88,8 @@
 .navbar-toggler:checked ~ .nav-scrollable[b-tpirhdbo0f] {
     display: block;
 }
+
+
 
 @media (min-width: 641px) {
     .navbar-toggler[b-tpirhdbo0f] {

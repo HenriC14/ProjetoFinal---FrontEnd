@@ -35,6 +35,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb3VudGVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/ETEC/DS/ProjetoFinal Frontend/ProjetoFinal---FrontEnd/Components/Pages/Creditos.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDcmVkaXRvcy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/ETEC/DS/ProjetoFinal Frontend/ProjetoFinal---FrontEnd/Components/Pages/Error.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 

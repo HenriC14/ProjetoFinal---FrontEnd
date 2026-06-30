@@ -163,8 +163,6 @@ C:\ETEC\DS\ProjetoFinal Frontend\ProjetoFinal---FrontEnd\obj\Debug\net10.0\compr
 C:\ETEC\DS\ProjetoFinal Frontend\ProjetoFinal---FrontEnd\obj\Debug\net10.0\compressed\14zped9jfz-{0}-abdmv1u4y3-abdmv1u4y3.gz
 C:\ETEC\DS\ProjetoFinal Frontend\ProjetoFinal---FrontEnd\obj\Debug\net10.0\compressed\d7ajhurtms-{0}-ne14ti1q68-ne14ti1q68.gz
 C:\ETEC\DS\ProjetoFinal Frontend\ProjetoFinal---FrontEnd\obj\Debug\net10.0\compressed\ktf9qoi4lw-{0}-ig5xotzpx5-ig5xotzpx5.gz
-C:\ETEC\DS\ProjetoFinal Frontend\ProjetoFinal---FrontEnd\obj\Debug\net10.0\compressed\pkbybknfkr-{0}-elsciq1r6x-elsciq1r6x.gz
-C:\ETEC\DS\ProjetoFinal Frontend\ProjetoFinal---FrontEnd\obj\Debug\net10.0\compressed\57sofuii6q-{0}-elsciq1r6x-elsciq1r6x.gz
 C:\ETEC\DS\ProjetoFinal Frontend\ProjetoFinal---FrontEnd\obj\Debug\net10.0\staticwebassets.build.json
 C:\ETEC\DS\ProjetoFinal Frontend\ProjetoFinal---FrontEnd\obj\Debug\net10.0\staticwebassets.build.json.cache
 C:\ETEC\DS\ProjetoFinal Frontend\ProjetoFinal---FrontEnd\obj\Debug\net10.0\staticwebassets.development.json
@@ -173,3 +171,5 @@ C:\ETEC\DS\ProjetoFinal Frontend\ProjetoFinal---FrontEnd\obj\Debug\net10.0\swae.
 C:\ETEC\DS\ProjetoFinal Frontend\ProjetoFinal---FrontEnd\obj\Debug\net10.0\Reciclad.15698EA2.Up2Date
 C:\ETEC\DS\ProjetoFinal Frontend\ProjetoFinal---FrontEnd\obj\Debug\net10.0\RecicladorBlazor.genruntimeconfig.cache
 C:\ETEC\DS\ProjetoFinal Frontend\ProjetoFinal---FrontEnd\obj\Debug\net10.0\ref\RecicladorBlazor.dll
+C:\ETEC\DS\ProjetoFinal Frontend\ProjetoFinal---FrontEnd\obj\Debug\net10.0\compressed\pkbybknfkr-{0}-t220zeulv8-t220zeulv8.gz
+C:\ETEC\DS\ProjetoFinal Frontend\ProjetoFinal---FrontEnd\obj\Debug\net10.0\compressed\57sofuii6q-{0}-t220zeulv8-t220zeulv8.gz
